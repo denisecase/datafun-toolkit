@@ -196,6 +196,7 @@ package-dir = {"" = "src"} # WHY: src-layout keeps code separate from config and
 where = ["src"] # WHY: Explicitly define package discovery location.
 
 [tool.setuptools_scm]
+tag_regex = "^v(?P<version>\\d+\\.\\d+\\.\\d+)$" # WHY: Match tags like v1.2.3 for versioning.
 fallback_version = "0.0.1"
 local_scheme = "no-local-version"
 version_file = "src/datafun_toolkit/_version.py"
