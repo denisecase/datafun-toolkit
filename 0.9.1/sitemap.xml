@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://denisecase.github.io/datafun-toolkit/0.9.1/</loc>
+        <lastmod>2026-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://denisecase.github.io/datafun-toolkit/0.9.1/"/>
+    </url>
+    <url>
+        <loc>https://denisecase.github.io/datafun-toolkit/0.9.1/en/</loc>
+        <lastmod>2026-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://denisecase.github.io/datafun-toolkit/0.9.1/en/"/>
+    </url>
+    <url>
+        <loc>https://denisecase.github.io/datafun-toolkit/0.9.1/en/api/</loc>
+        <lastmod>2026-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://denisecase.github.io/datafun-toolkit/0.9.1/en/api/"/>
+    </url>
+    <url>
+        <loc>https://denisecase.github.io/datafun-toolkit/0.9.1/en/examples/</loc>
+        <lastmod>2026-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://denisecase.github.io/datafun-toolkit/0.9.1/en/examples/"/>
+    </url>
+    <url>
+        <loc>https://denisecase.github.io/datafun-toolkit/0.9.1/en/troubleshooting/</loc>
+        <lastmod>2026-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://denisecase.github.io/datafun-toolkit/0.9.1/en/troubleshooting/"/>
+    </url>
+</urlset>
