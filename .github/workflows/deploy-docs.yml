@@ -70,9 +70,16 @@ jobs:
         with:
           path: site
 
-      - name: D3) Deploy to GitHub Pages (gh-pages)
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: site
+  deploy:
+    needs: docs
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: D3) Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
