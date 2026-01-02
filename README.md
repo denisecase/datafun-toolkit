@@ -1,5 +1,6 @@
 # Data Analytics Fundamentals: Toolkit
 
+[![PyPI version](https://img.shields.io/pypi/v/datafun-toolkit)](https://pypi.org/project/datafun-toolkit/)
 [![Latest Release](https://img.shields.io/github/v/release/denisecase/datafun-toolkit)](https://github.com/denisecase/datafun-toolkit/releases)
 [![Docs](https://img.shields.io/badge/docs-live-blue)](https://denisecase.github.io/datafun-toolkit/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/MIT)
