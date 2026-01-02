@@ -1,5 +1,5 @@
 # REQ.PROJECT: MkDocs configuration file (mkdocs.yaml)
-#      to automatically build an assoociated website
+#      to automatically build an associated website
 #      for professional project documentation and communication.
 #      Requires:
 #         1. this file in the root of your project repository
@@ -8,13 +8,14 @@
 #
 # WHY: This data file provides the site structure and settings
 
-
-# CUSTOM: Change "YOUR NAME" to your actual name
-site_name: "Sales Anomaly Detection - YOUR NAME"
+site_name: "DataFun Toolkit"
+site_url: https://denisecase.github.io/datafun-toolkit/
+repo_url: https://github.com/denisecase/datafun-toolkit
 site_description: Project documentation.
+site_author: Denise M. Case
 docs_dir: docs
 site_dir: site
-
+copyright: Copyright &copy; 2026 Denise M. Case
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -31,41 +32,59 @@ extra:
 # WHY: Material theme is industry standard, well-documented
 theme:
   name: material
-  palette:
-    primary: blue  # CUSTOM: try indigo, green, orange, purple, pink, brown, grey
-    accent: red    # CUSTOM: try blue, green, orange, purple, pink, brown, grey
+  features:
+    - navigation.expand
+    - navigation.top # Back-to-top button
+    - search.suggest # Search suggestions while typing
+    - search.highlight # Highlight search terms
+    - content.code.copy # Copy button on code blocks
+    - toc.follow # Highlight current section in TOC
 
-# REQ: These plugins enable CSV charts
+  palette:
+    - scheme: default # Light/dark mode toggle
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
 plugins:
-  - search
-  - charts
+  - search # WHY: Built-in search functionality
+  - mike # WHY: Multi-version documentation management
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - src/python/src
+          options:
+            show_source: true
+            show_root_heading: true # Include module names
+            show_root_toc_entry: true # Include module in TOC
+            docstring_style: google # Professional docstring format
+            show_signature_annotations: true
+            separate_signature: true # Makes function signatures easier to read
   - i18n:
-      default_language: en
       languages:
-        en:
+        - locale: en
           name: English
+          default: true
           build: true
-        fr:
+        - locale: fr
           name: Français
           build: false
-        el:
+        - locale: el
           name: Ελληνικά
           build: false
 
-# REQ: These extensions enable vegalite fence
-markdown_extensions:
-  - pymdownx.superfences:
-      custom_fences:
-        - name: vegalite
-          class: vegalite
-          format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
-
-# REQ: Vega libraries loaded from CDN (no local install)
-extra_javascript:
-  - https://cdn.jsdelivr.net/npm/vega@5
-  - https://cdn.jsdelivr.net/npm/vega-lite@5
-  - https://cdn.jsdelivr.net/npm/vega-embed@6
-
 nav:
   - Site: index.md
-  - Results: results.md
+  - Home: en/index.md
+  - API: en/api.md
+  - Examples: en/examples.md
+  - Troubleshooting: en/troubleshooting.md
