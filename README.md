@@ -110,3 +110,7 @@ git push -u origin main
 ## License
 
 [MIT](./LICENSE)
+
+## SE Manifest
+
+[SE_MANIFEST.md](./SE_MANIFEST.toml)
