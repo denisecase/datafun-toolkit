@@ -13,6 +13,14 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.9.5] - 2026-01-11
+
+### Updated
+
+- Updated with improved configs
+
+---
+
 ## [0.9.4] - 2026-01-08
 
 ### Updated
@@ -67,7 +75,8 @@ git tag v0.9.0 -m "0.9.0"
 git push origin v0.9.0
 ```
 
-[Unreleased]: https://github.com/denisecase/datafun-toolkit/compare/v0.9.4...HEAD
+[Unreleased]: https://github.com/denisecase/datafun-toolkit/compare/v0.9.5...HEAD
+[0.9.5]: https://github.com/denisecase/datafun-toolkit/releases/tag/v0.9.5
 [0.9.4]: https://github.com/denisecase/datafun-toolkit/releases/tag/v0.9.4
 [0.9.3]: https://github.com/denisecase/datafun-toolkit/releases/tag/v0.9.3
 [0.9.2]: https://github.com/denisecase/datafun-toolkit/releases/tag/v0.9.2
