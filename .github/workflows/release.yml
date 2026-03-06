@@ -50,7 +50,7 @@ jobs:
           uv run python --version
 
       - name: A5) Sync to install all dependencies
-        # REQ: dev extra SHOULD include ruff/pyright/pytest/deptry/twine (as used below).
+        # REQ: dev extra SHOULD include ruff/pyright/pytest/deptry (as used below).
         # REQ: docs extra MUST include project documentation toolchain.
         run: |
           uv sync --extra dev --extra docs --upgrade
@@ -97,7 +97,9 @@ jobs:
           echo "Artifact version matches tag."
 
       - name: D4) Validate built artifacts
-        run: uv run twine check dist/*
+        # WHY: Twine checks package metadata before publishing.
+        # Install it only here so it is not required for normal local development.
+        run: uv tool run twine check dist/*
 
       - name: D5) List dist artifacts
         run: ls -lah dist
