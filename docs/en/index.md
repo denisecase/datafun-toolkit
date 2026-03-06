@@ -1,6 +1,6 @@
 # DataFun Toolkit
 
-The **DataFun Toolkit** provides privacy-safe utility helpers for data analytics Python projects.
+The **DataFun Toolkit** provides privacy-safe utilities for analytics Python projects.
 
 This package is designed to be:
 
@@ -8,18 +8,18 @@ This package is designed to be:
 - Safe to log and share
 - Consistent across operating systems
 
-It supports common needs such as:
+It helps:
 
-- Finding the project root reliably
-- Sanitizing file paths for logs
-- Detecting runtime environment details (OS, shell, Python)
-- Emitting standardized log headers
+- Locate the project root
+- Sanitize file paths for logs
+- Detect runtime environment details (OS, shell, Python)
+- Emit standardized log headers
 
 ## Who This Is For
 
-- Those learning Python for data analytics
-- Debugging
-- Analytics projects that need lightweight diagnostics
+- Data analysts working on Python projects
+- Developers debugging workflows
+- Analytics projects needing lightweight diagnostics
 - CI / GitHub Actions environments
 
 This toolkit intentionally avoids:
@@ -44,10 +44,10 @@ Or with uv:
     uv add datafun-toolkit
     uv sync
 
-Once installed, import the functions by module (see api.md).
+See the API reference for available modules.
 
 ## Documentation
 
-- API Reference (api.md)
-- Examples (examples.md)
-- Troubleshooting (troubleshooting.md)
+- API Reference
+- Examples
+- Troubleshooting

@@ -3,7 +3,6 @@
 # ============================================================
 # VARIANT: python-mkdocs-pypi
 # SOURCE: https://github.com/denisecase/templates
-# Includes scm and mike for versioning.
 
 # REQ.PYTHON: Python projects MUST include pyproject.toml as the single source of truth.
 # WHY: Centralizes project configuration.
@@ -52,7 +51,6 @@ dev = [
     "pytest-cov>=7.0.0",
     "pyright>=1.1.408",
     "ruff>=0.14.13",
-    "twine>=6.2.0",
     "validate-pyproject>=0.24.1",
 ]
 
@@ -80,11 +78,9 @@ DEP002 = [
     "pytest-cov",
     "pyright",
     "ruff",
-    "twine",
     "validate-pyproject",
 
     # === DOCUMENTATION TOOLING (not required at runtime) ===
-    "mike",
     "mkdocstrings",         # WHY: Needed for [python] extra (above).
     "zensical",             # WHY: Zensical is used for AI-assisted documentation.
 ]

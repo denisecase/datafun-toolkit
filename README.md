@@ -7,7 +7,7 @@
 [![CI](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci-python-zensical.toml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci-python-zensical.toml)
 [![Deploy-Docs](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-zensical.toml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-zensical.toml)
 [![Check Links](https://github.com/denisecase/datafun-toolkit/actions/workflows/links.yml/badge.svg)](https://github.com/denisecase/datafun-toolkit/actions/workflows/links.yml)
-[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/denisecase/datafun-toolkit/security/dependabot)
+[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/denisecase/datafun-toolkit/security)
 
 > Privacy-safe diagnostics, paths, and logging helpers for analytics projects.
 

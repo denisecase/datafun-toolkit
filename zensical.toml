@@ -7,7 +7,7 @@
 # It is used in this project to streamline documentation and provide better support for docstring generation.
 
 [project]
-site_name = "Project Docs"
+site_name = "DataFun Toolkit"
 site_url = "https://denisecase.github.io/datafun-toolkit/"
 repo_url = "https://github.com/denisecase/datafun-toolkit"
 repo_name = "denisecase/datafun-toolkit"
