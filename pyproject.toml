@@ -21,7 +21,7 @@ license-files = ["LICENSE"]
 
 # PyPI classifiers to help with discovery.
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Operating System :: OS Independent",

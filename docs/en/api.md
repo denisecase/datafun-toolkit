@@ -1,8 +1,6 @@
 # API Reference
 
-This page documents the public API of the `datafun-toolkit` package.
-
-Only the documented functions below are considered stable.
+Public functions provided by `datafun_toolkit`.
 
 ## datafun_toolkit.paths
 
@@ -12,66 +10,52 @@ Utilities for locating the project root and sanitizing paths.
 
 Return the project root directory.
 
-The project root is identified as the nearest parent directory containing either:
+The root is the nearest parent directory containing:
 
-- pyproject.toml, or
-- a .git directory
-
-WHY:
-- Prevents hard-coded paths
-- Works regardless of current working directory
-- Behaves the same locally and in CI
+- `pyproject.toml`, or
+- `.git`
 
 Example:
 
-    from datafun_toolkit.paths import find_project_root
-    root = find_project_root()
+```python
+from datafun_toolkit.paths import find_project_root
+
+root = find_project_root()
+```
 
 ### safe_relpath_str(path: Path, root: Path) -> str
 
-Return a sanitized, repo-relative path string when possible.
+Return a repo-relative string for a path when possible.
 
-If the path cannot be made relative to the project root, the function returns only the filename.
-
-WHY:
-- Avoids leaking full home directory paths in logs
-- Keeps log output short and shareable
-
-Example:
-
-    from pathlib import Path
-    from datafun_toolkit.paths import find_project_root, safe_relpath_str
-
-    root = find_project_root()
-    safe_path = safe_relpath_str(Path.cwd(), root)
+If the path cannot be made relative to the project root, the filename is returned.
 
 ## datafun_toolkit.diagnostics
 
-Lightweight environment detection helpers.
+Environment detection helpers.
 
 ### detect_shell() -> str
 
-Attempt to identify the active shell or terminal in a privacy-safe way.
+Return the active shell name when detectable.
 
-Possible return values include:
-- pwsh
-- powershell
-- bash
-- zsh
-- unknown
+Possible values include:
 
-OBS:
-- This function uses environment-variable heuristics only.
+- `pwsh`
+- `powershell`
+- `bash`
+- `zsh`
+- `unknown`
 
 ### detect_os() -> str
 
 Return a concise operating system description.
 
-Example output:
+Example:
 
-    Windows 11
-    Linux 6.6
-    Darwin 23.1
+```
+Windows 11
+Linux 6.6
+Darwin 23
+```
 
 ### detect_python() -> str
 
@@ -79,43 +63,20 @@ Return the active Python version string.
 
 ## datafun_toolkit.logger
 
-Standardized logging helpers.
+Logging helpers.
 
-### get_logger(project_name: str, *, level: str = "INFO") -> logging.Logger
+### get_logger(project_name: str, \*, level: str = "INFO") -> logging.Logger
 
-Return a configured Python logger that:
-
-- Logs to both console and file
-- Avoids duplicate handlers
-- Uses consistent formatting
-
-OBS:
-- The log file is created at the project root.
+Return a configured logger that writes to console and a log file.
 
 ### log_header(logger: logging.Logger, project_name: str) -> None
 
-Emit a standardized, privacy-safe run header.
+Emit a standardized run header with environment details.
 
-The header includes:
-- project name
-- repository directory name
-- python version
-- operating system
-- shell
-- current working directory (sanitized)
-- whether running in GitHub Actions
+### log_path(logger: logging.Logger, label: str, path: Path) -> None
 
-OBS:
-- Intended to be called once per run.
+Log a repo-relative path in a privacy-safe way.
 
-## Marker Files
+## Type Hint Support
 
-### py.typed
-
-This package includes a py.typed marker file as defined by PEP 561.
-
-WHY:
-- Type checkers (Pyright, Mypy) only trust inline type hints in installed packages when this marker is present.
-
-OBS:
-- The file may be empty; comments are allowed.
+This package includes a `py.typed` marker file (PEP 561), enabling type checkers such as Pyright to trust inline type hints.

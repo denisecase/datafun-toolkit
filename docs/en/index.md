@@ -1,50 +1,28 @@
 # DataFun Toolkit
 
-The **DataFun Toolkit** provides privacy-safe utilities for analytics Python projects.
+The **DataFun Toolkit** provides privacy-safe utilities for Python projects.
 
-This package is designed to be:
-
-- Imported, not modified
-- Safe to log and share
-- Consistent across operating systems
-
-It helps:
+It includes helpers to:
 
 - Locate the project root
-- Sanitize file paths for logs
+- Log paths safely (without exposing full machine paths)
 - Detect runtime environment details (OS, shell, Python)
-- Emit standardized log headers
+- Emit a standardized logging header
 
-## Who This Is For
-
-- Data analysts working on Python projects
-- Developers debugging workflows
-- Analytics projects needing lightweight diagnostics
-- CI / GitHub Actions environments
-
-This toolkit intentionally avoids:
-
-- Heavy dependencies
-- Framework assumptions
-- User-specific identifiers
-
-## Design Principles
-
-- CI-friendly: behaves the same locally and in GitHub Actions
-- Privacy-safe: avoids usernames, hostnames, and absolute home paths
-- Teaching-first: clear structure, readable output, predictable behavior
-- Industry-legible: follows standard Python logging and packaging practices
+The toolkit is lightweight and works the same locally and in CI environments.
 
 ## Installation
 
+```shell
 pip install datafun-toolkit
+```
 
 Or with uv:
 
-    uv add datafun-toolkit
-    uv sync
-
-See the API reference for available modules.
+```shell
+uv add datafun-toolkit
+uv sync
+```
 
 ## Documentation
 

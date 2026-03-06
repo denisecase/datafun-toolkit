@@ -59,7 +59,7 @@ features = [
 # If you later decide to rely more on folder-based navigation, you can simplify.
 
 nav = [
-  { title = "Site", path = "index.md" },
+  { title = "Start", path = "index.md" },
   { title = "Home", path = "en/index.md" },
   { title = "API", path = "en/api.md" },
   { title = "Examples", path = "en/examples.md" },

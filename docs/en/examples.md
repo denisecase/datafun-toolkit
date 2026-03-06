@@ -2,55 +2,66 @@
 
 Typical usage patterns for the DataFun Toolkit.
 
-These examples assume the package is installed and imported.
-
 ## Example: Logging a Run Header
 
-    from datafun_toolkit.logger import get_logger, log_header
+```python
+from datafun_toolkit.logger import get_logger, log_header
 
-    logger = get_logger("datafun-project", level="INFO")
-    log_header(logger, "datafun-project")
+logger = get_logger("datafun-project", level="INFO")
+log_header(logger, "datafun-project")
 
-    logger.info("Starting analysis...")
+logger.info("Starting analysis...")
+```
 
-Example output (sanitized):
+Example output:
 
-    === RUN START ===
-    project=datafun-project
-    repo_dir=datafun-project
-    python=3.14.1
-    os=Windows 11
-    shell=pwsh
-    cwd=src
-    github_actions=False
+```
+=== RUN START ===
+project=datafun-project
+repo_dir=datafun-project
+python=3.14.1
+os=Windows 11
+shell=pwsh
+cwd=src
+github_actions=False
+```
 
-## Example: Safe Path Logging
+## Example: Logging Paths Safely
 
-    from pathlib import Path
-    from datafun_toolkit.paths import find_project_root, safe_relpath_str
+```python
+from pathlib import Path
+from datafun_toolkit.logger import get_logger, log_path
 
-    root = find_project_root()
-    print(f"Working directory: {safe_relpath_str(Path.cwd(), root)}")
+logger = get_logger("datafun-project")
+
+ROOT_PATH = Path.cwd()
+DATA_PATH = ROOT_PATH / "data"
+
+log_path(logger, "ROOT_PATH", ROOT_PATH)
+log_path(logger, "DATA_PATH", DATA_PATH)
+```
+
+Example output:
+
+```
+ROOT_PATH = .
+DATA_PATH = data
+```
 
 ## Example: Environment Diagnostics
 
-    from datafun_toolkit.diagnostics import detect_shell, detect_os, detect_python
+```python
+from datafun_toolkit.diagnostics import detect_shell, detect_os, detect_python
 
-    print(detect_shell())
-    print(detect_os())
-    print(detect_python())
+print(detect_shell())
+print(detect_os())
+print(detect_python())
+```
 
-OBS:
-- This information is safe to paste into issue reports or grading feedback.
+Example output:
 
-## When to Use This Toolkit
-
-Use it when you want:
-- predictable logging output
-- CI-safe diagnostics
-- consistent behavior across different machines
-
-Do not use it for:
-- performance benchmarking
-- security auditing
-- deep system inspection
+```
+pwsh
+Windows 11
+3.14.1
+```

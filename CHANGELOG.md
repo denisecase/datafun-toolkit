@@ -7,9 +7,15 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ## [Unreleased]
 
-### Added
+---
 
-- (placeholder) Notes for the next release.
+## [1.0.0] - 2026-03-06
+
+### Updated
+
+- Declared stable public API
+- Updated documentation and examples
+- Standardized privacy-safe path logging with `log_path()`
 
 ---
 
@@ -17,8 +23,8 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ### Updated
 
-- MkDocs to Zensical for project documentation
-- Default log uses relative path
+- Documentation system migrated from MkDocs to Zensical
+- Default logging behavior uses sanitized relative paths
 
 ---
 
@@ -78,13 +84,15 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 - Sample commands:
 
 ```shell
-git tag -d v0.9.6
-git push origin :refs/tags/v0.9.6
-git tag v0.9.6 -m "0.9.6"
-git push origin v0.9.6
+git tag -d v1.0.0
+git push origin :refs/tags/v1.0.0
+
+git tag v1.0.0 -m "1.0.0"
+git push origin v1.0.0
 ```
 
-[Unreleased]: https://github.com/denisecase/datafun-toolkit/compare/v0.9.6...HEAD
+[Unreleased]: https://github.com/denisecase/datafun-toolkit/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/denisecase/datafun-toolkit/releases/tag/v1.0.0
 [0.9.6]: https://github.com/denisecase/datafun-toolkit/releases/tag/v0.9.6
 [0.9.5]: https://github.com/denisecase/datafun-toolkit/releases/tag/v0.9.5
 [0.9.4]: https://github.com/denisecase/datafun-toolkit/releases/tag/v0.9.4

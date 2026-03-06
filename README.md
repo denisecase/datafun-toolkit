@@ -13,9 +13,10 @@
 
 ## What This Provides
 
-- `find_project_root()` and `safe_relpath_str()` for robust, repo-relative paths
-- `get_logger()` for consistent console and file logging (using a standard logging API)
-- `log_header()` for a privacy-safe logging header (shows OS, shell, Python version, repo-relative cwd)
+- `get_logger()` for consistent console and file logging
+- `log_header()` for a standardized run header
+- `log_path()` for privacy-safe path logging
+- environment helpers: `detect_shell()`, `detect_os()`, `detect_python()`
 
 This toolkit is designed for reuse.
 It works the same locally and in GitHub Actions.
@@ -33,10 +34,9 @@ pip install datafun-toolkit
 ## Example
 
 ```python
-
 import logging
 from pathlib import Path
-from datafun_toolkit.logger import get_logger, log_header
+from datafun_toolkit.logger import get_logger, log_header, log_path
 
 LOG: logging.Logger = get_logger("P01", level="DEBUG")
 
@@ -48,18 +48,13 @@ def main() -> None:
     log_header(LOG, "P01 Pipeline")
 
     LOG.info("START main()")
-    LOG.info(f"ROOT_PATH = {ROOT_PATH}")
-    LOG.info(f"DATA_PATH = {DATA_PATH}")
+    log_path(LOG, "ROOT_PATH", ROOT_PATH)
+    log_path(LOG, "DATA_PATH", DATA_PATH)
     LOG.info("Working....")
-
     LOG.info("END main()")
-
-
-# === CONDITIONAL EXECUTION GUARD ===
 
 if __name__ == "__main__":
     main()
-
 ```
 
 ## Developer Setup
