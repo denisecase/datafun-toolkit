@@ -12,8 +12,8 @@ cff-version: "1.2.0"
 type: software
 
 title: "Data Analytics Fundamentals Toolkit"
-version: "0.9.0"
-date-released: "2026-01-11"
+version: "0.9.6"
+date-released: "2026-03-06"
 
 authors:
   - family-names: Case

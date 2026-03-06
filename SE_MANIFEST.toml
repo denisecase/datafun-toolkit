@@ -35,11 +35,13 @@ required = [
 ]
 # WHY: Optional tools are not required to use or run the repository.
 optional = [
-  "mkdocs",
   "ruff",
   "pyright",
   "pytest",
   "lychee",
+  "zensical",
+  "mkdocstrings",
+  "validate-pyproject",
 ]
 
 [provides]

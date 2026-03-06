@@ -4,8 +4,8 @@
 [![Latest Release](https://img.shields.io/github/v/release/denisecase/datafun-toolkit)](https://github.com/denisecase/datafun-toolkit/releases)
 [![Docs](https://img.shields.io/badge/docs-live-blue)](https://denisecase.github.io/datafun-toolkit/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/MIT)
-[![CI](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci-python-mkdocs.yml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci-python-mkdocs.yml)
-[![Deploy-Docs](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-mkdocs.yml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-mkdocs.yml)
+[![CI](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci-python-zensical.toml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/ci-python-zensical.toml)
+[![Deploy-Docs](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-zensical.toml/badge.svg?branch=main)](https://github.com/denisecase/datafun-toolkit/actions/workflows/deploy-zensical.toml)
 [![Check Links](https://github.com/denisecase/datafun-toolkit/actions/workflows/links.yml/badge.svg)](https://github.com/denisecase/datafun-toolkit/actions/workflows/links.yml)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/denisecase/datafun-toolkit/security/dependabot)
 
@@ -33,19 +33,33 @@ pip install datafun-toolkit
 ## Example
 
 ```python
-from datafun_toolkit import find_project_root, get_logger, log_header, safe_relpath_str
+
+import logging
 from pathlib import Path
+from datafun_toolkit.logger import get_logger, log_header
+
+LOG: logging.Logger = get_logger("P01", level="DEBUG")
+
+ROOT_PATH: Path = Path.cwd()
+DATA_PATH: Path = ROOT_PATH / "data"
 
 def main() -> None:
-    logger = get_logger("example")
-    log_header(logger, "example")
+    """Start the main logic."""
+    log_header(LOG, "P01 Pipeline")
 
-    root = find_project_root()
-    logger.info(f"project_root={root.name}")
-    logger.info(f"cwd={safe_relpath_str(Path.cwd(), root)}")
+    LOG.info("START main()")
+    LOG.info(f"ROOT_PATH = {ROOT_PATH}")
+    LOG.info(f"DATA_PATH = {DATA_PATH}")
+    LOG.info("Working....")
+
+    LOG.info("END main()")
+
+
+# === CONDITIONAL EXECUTION GUARD ===
 
 if __name__ == "__main__":
     main()
+
 ```
 
 ## Developer Setup
@@ -86,12 +100,14 @@ uv run bandit -c pyproject.toml -r src
 uv run validate-pyproject pyproject.toml
 ```
 
-Build and serve docs (hit **CTRL+c** in the VS Code terminal to quit serving):
+Build and serve docs:
 
 ```shell
-uv run mkdocs build --strict
-uv run mkdocs serve
+uv run zensical build
+uv run zensical serve
 ```
+
+Hit **CTRL+c** in the VS Code terminal to quit serving.
 
 Save progress frequently (some tools may make changes; you may need to **re-run git `add` and `commit`** to ensure everything gets committed before pushing):
 

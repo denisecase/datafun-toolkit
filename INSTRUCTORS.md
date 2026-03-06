@@ -28,7 +28,7 @@ This repository **includes additional features** that many project repos will NO
 
 - PyPI packaging and release workflow
 - Dynamic versioning (SCM tags)
-- Versioned documentation (Mike + MkDocs)
+- Project documentation
 - CI enforcing formatting, linting, typing, and tests
 - Pre-commit quality gates
 - Typed package marker (`py.typed`)
@@ -46,8 +46,6 @@ Defines:
 - Tool configuration (ruff, pyright, deptry, bandit)
 - Packaging metadata
 
-This is the single source of truth for a Python project.
-
 ### 2. .pre-commit-config.yaml
 
 Defines:
@@ -61,11 +59,7 @@ If pre-commit passes, the GitHub actions CD/CD should pass.
 
 ### 3. .github/workflows/
 
-GitHub actions workflows:
-
-- `ci-python-mkdocs.yml` - validation only (should check but not mutate code)
-- `deploy-mkdocs.yml` - GitHub Pages build (provides the optional project documentation)
-- `release.yml` - PyPI and versioned docs (advanced)
+GitHub actions workflows.
 
 ## Design Notes
 
@@ -99,16 +93,6 @@ Usually means:
 - Logger not initialized
 - Function not called
 - Script not executed
-- Solution: Call necessary functions - see example below
-
-```python
-# imports at the top of the file
-from datafun_toolkit.logger import get_logger, log_header
-
-# just once, early in program execution (e.g. beginning of main())
-logger = get_logger("datafun-project", level="INFO")
-log_header(logger, "datafun-project")
-```
 
 ### CI fails but local run works
 
@@ -123,35 +107,6 @@ Often indicates:
 git add -A
 uv run pre-commit run --all-files
 git add -A
-```
-
-### Paths look absolute
-
-Indicates:
-
-- Paths not sanitized.
-- Provided helpers are not being called.
-- Hard-coded paths used
-- Solution: import the functions, initialize the logger, and use the functions provided.
-
-```python
-# imports at the top of the file
-from pathlib import Path
-from datafun_toolkit.logger import get_logger, log_header
-from datafun_toolkit.paths import find_project_root, safe_relpath_str
-
-# just once, early in program execution (e.g. beginning of main())
-logger = get_logger("datafun-project", level="INFO")
-log_header(logger, "datafun-project")
-
-# as needed to log paths
-root: Path = find_project_root()
-data_dir: str = safe_relpath_str(root / "data", root)
-notebooks_dir: str = safe_relpath_str(root / "notebooks", root)
-
-logger.info(f"Root: {root}")
-logger.info(f"Data: {data_dir}")
-logger.info(f"Notebooks: {notebooks_dir}")
 ```
 
 ## Maintenance Notes

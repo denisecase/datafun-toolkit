@@ -19,7 +19,7 @@ from pathlib import Path
 from .diagnostics import detect_os, detect_python, detect_shell
 from .paths import find_project_root, safe_relpath_str
 
-__all__ = ["get_logger", "log_header"]
+__all__ = ["get_logger", "log_header", "log_path"]
 
 
 def get_logger(
@@ -78,6 +78,20 @@ def log_header(logger: logging.Logger, project_name: str) -> None:
     logger.info(f"shell={detect_shell()}")
     logger.info(f"cwd={safe_relpath_str(Path.cwd(), root)}")
     logger.info(f"github_actions={bool(os.getenv('GITHUB_ACTIONS'))}")
+
+
+def log_path(logger: logging.Logger, label: str, path: Path) -> None:
+    """Log a privacy-safe project path.
+
+    REQ.SANITIZE:
+      - Do not emit full machine-specific paths
+      - Prefer repo-relative paths when possible
+
+    WHY.SANITIZE:
+      - Keep logs portable and privacy-aware
+    """
+    root: Path = find_project_root()
+    logger.info(f"{label} = {safe_relpath_str(path, root)}")
 
 
 def _configure_handlers(logger: logging.Logger, log_file: Path, level: int) -> None:
